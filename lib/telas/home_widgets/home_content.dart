@@ -21,7 +21,7 @@ class _HomePageContentState extends State<HomePageContent> {
       height: MediaQuery.of(context).size.height,
       padding: EdgeInsets.symmetric(
         horizontal: 16,
-        vertical: 72,
+        vertical: 8,
       ),
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -33,40 +33,41 @@ class _HomePageContentState extends State<HomePageContent> {
           ],
         ),
       ),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          // ignore: prefer_const_literals_to_create_immutables
-          children: [
-            Padding(
-              padding: EdgeInsets.only(
-                bottom: 32,
-              ),
+      child: ListView(
+        // ignore: prefer_const_literals_to_create_immutables
+        children: [
+          Padding(
+            padding: EdgeInsets.only(
+              bottom: 32,
+            ),
 
-              //Header
+            //Header
 
+            child: CircleAvatar(
+              radius: 72,
+              backgroundColor: Color.fromARGB(255, 85, 90, 95),
               child: CircleAvatar(
-                radius: 72,
-                backgroundColor: Color.fromARGB(255, 85, 90, 95),
-                child: CircleAvatar(
-                  backgroundImage: AssetImage("assets/Logo-DBM.jpeg"),
-                  radius: 68,
-                ),
+                backgroundImage: AssetImage("assets/Logo-DBM.jpeg"),
+                radius: 68,
               ),
             ),
-            Text(
-              "DBM SISTEMAS LTDA",
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                  color: Color.fromARGB(255, 94, 158, 255),
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600),
+          ),
+          Text(
+            "DBM SISTEMAS LTDA",
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                color: Color.fromARGB(255, 94, 158, 255),
+                fontSize: 20,
+                fontWeight: FontWeight.w600),
+          ),
+          Column(children: [
+            Container(
+              color: Colors.white,
+              child: Text("A"),
             ),
-          ],
-        ),
+          ])
+        ],
       ),
     );
-    // ignore: dead_code
   }
 }
