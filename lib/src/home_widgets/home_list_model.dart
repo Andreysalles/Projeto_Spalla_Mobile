@@ -1,5 +1,3 @@
-import "package:flutter/material.dart";
-
 class HomeListModel {
   dynamic icon;
   dynamic assetIcon;

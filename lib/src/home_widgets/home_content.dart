@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:spallamobile/telas/home_widgets/home_list_item.dart';
 
-import "home_list_model.dart";
+import 'package:spallamobile/src/home_widgets/home_card_financeiro.dart';
+
 import "package:flutter/material.dart";
+import 'package:spallamobile/src/home_widgets/home_card_servicos.dart';
+import 'package:spallamobile/src/home_widgets/home_card_vendas.dart';
 
 class HomePageContent extends StatefulWidget {
   const HomePageContent({super.key});
@@ -12,22 +14,16 @@ class HomePageContent extends StatefulWidget {
 }
 
 class _HomePageContentState extends State<HomePageContent> {
-  List<HomeListModel> listMockedList = [
-    HomeListModel(title: "Home - Spalla", assetIcon: "assets/Guilherme.png"),
-  ];
+  @override
   @override
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height,
-      padding: EdgeInsets.symmetric(
-        horizontal: 16,
-        vertical: 8,
-      ),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [
+          colors: const [
             Color.fromARGB(255, 0, 28, 56),
             Color.fromARGB(255, 97, 176, 255),
           ],
@@ -52,20 +48,37 @@ class _HomePageContentState extends State<HomePageContent> {
               ),
             ),
           ),
-          Text(
-            "DBM SISTEMAS LTDA",
-            textAlign: TextAlign.left,
-            style: TextStyle(
-                color: Color.fromARGB(255, 94, 158, 255),
-                fontSize: 20,
-                fontWeight: FontWeight.w600),
-          ),
-          Column(children: [
-            Container(
-              color: Colors.white,
-              child: Text("A"),
+          Padding(
+            padding: EdgeInsets.only(
+              bottom: 40,
+              left: 15,
             ),
-          ])
+            child: Text(
+              "DBM SISTEMAS LTDA",
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                  color: Color.fromARGB(255, 94, 158, 255),
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600),
+            ),
+          ),
+          Column(
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: HomeCardFinanceiro(),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: HomeCardVendas(),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: HomeCardServicos(),
+              ),
+            ],
+          )
         ],
       ),
     );

@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'telas/home.dart';
+import 'src/home_view.dart';
 
 void main() {
   runApp(const MyApp());

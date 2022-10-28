@@ -13,19 +13,19 @@ Drawer getHomeDrawer() {
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [
+              colors: const [
                 Color.fromARGB(255, 0, 28, 56),
                 Color.fromARGB(255, 97, 176, 255),
               ],
             ),
           ),
-          accountName: Text("Guilherme Debone"),
+          accountName: Text("Andrey Salles"),
           accountEmail: Text(
-            "gdebone@gmail.com",
+            "andreyspereira@hotmail.com",
           ),
           currentAccountPicture: CircleAvatar(
             backgroundImage: AssetImage(
-              'assets/Guilherme.png',
+              'assets/andreyfoto.jpeg',
             ),
           ),
         ),

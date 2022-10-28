@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 
 import "package:flutter/material.dart";
-import 'package:spallamobile/telas/home_widgets/home_content.dart';
+import 'package:spallamobile/src/home_widgets/home_content.dart';
 
 import 'home_widgets/home_appbar.dart';
 import 'home_widgets/home_drawer.dart';
