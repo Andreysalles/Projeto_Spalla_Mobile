@@ -15,7 +15,6 @@ class HomePageContent extends StatefulWidget {
 
 class _HomePageContentState extends State<HomePageContent> {
   @override
-  @override
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height,
@@ -62,22 +61,35 @@ class _HomePageContentState extends State<HomePageContent> {
                   fontWeight: FontWeight.w600),
             ),
           ),
-          Column(
-            // ignore: prefer_const_literals_to_create_immutables
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(bottom: 20),
-                child: HomeCardFinanceiro(),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 20),
-                child: HomeCardVendas(),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 20),
-                child: HomeCardServicos(),
-              ),
-            ],
+          TweenAnimationBuilder(
+            tween: Tween<double>(
+              begin: 0,
+              end: 1,
+            ),
+            duration: Duration(milliseconds: 700),
+            builder: (context, value, child) {
+              return AnimatedOpacity(
+                opacity: value,
+                duration: Duration(milliseconds: 700),
+                child: Column(
+                  // ignore: prefer_const_literals_to_create_immutables
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 20),
+                      child: HomeCardFinanceiro(),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 20),
+                      child: HomeCardVendas(),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 20),
+                      child: HomeCardServicos(),
+                    ),
+                  ],
+                ),
+              );
+            },
           )
         ],
       ),

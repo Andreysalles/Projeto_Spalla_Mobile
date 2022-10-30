@@ -31,7 +31,7 @@ class _HomeCardServicosState extends State<HomeCardServicos> {
             padding: const EdgeInsets.only(bottom: 12),
             child: Row(
               children: [
-                Image.asset("assets/spalla-vendas-01-48x48.png", height: 40),
+                Image.asset("assets/spalla-servico-01-48x48.png", height: 40),
                 const Padding(
                   padding: EdgeInsets.only(
                     left: 32,
