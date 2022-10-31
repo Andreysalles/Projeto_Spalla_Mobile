@@ -15,6 +15,14 @@ class _HomeCardServicosState extends State<HomeCardServicos> {
       padding: const EdgeInsets.all(16),
       width: 360,
       decoration: const BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Color.fromARGB(255, 211, 211, 211),
+            offset: Offset(0.0, 0.0),
+            blurRadius: 10.0,
+            spreadRadius: 1.0,
+          ),
+        ],
         color: Colors.white,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(10),
@@ -50,7 +58,7 @@ class _HomeCardServicosState extends State<HomeCardServicos> {
           ),
 
           Padding(
-            padding: EdgeInsets.only(bottom: 20),
+            padding: const EdgeInsets.only(bottom: 20),
             child: Row(
               // ignore: prefer_const_literals_to_create_immutables
               children: [
@@ -71,7 +79,7 @@ class _HomeCardServicosState extends State<HomeCardServicos> {
               SizedBox(
                 height: 50,
                 child: MyButton(
-                  label: 'VER ATIVIDADES',
+                  labelbutton: 'VER ATIVIDADES',
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.blue,

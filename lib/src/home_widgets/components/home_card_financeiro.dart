@@ -1,21 +1,29 @@
-// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:spallamobile/src/home_widgets/components/my_button_widget.dart';
 
-class HomeCardVendas extends StatefulWidget {
-  const HomeCardVendas({super.key});
+class HomeCardFinanceiro extends StatefulWidget {
+  const HomeCardFinanceiro({super.key});
 
   @override
-  State<HomeCardVendas> createState() => _HomeCardVendasState();
+  State<HomeCardFinanceiro> createState() => _HomeCardFinanceiroState();
 }
 
-class _HomeCardVendasState extends State<HomeCardVendas> {
+class _HomeCardFinanceiroState extends State<HomeCardFinanceiro> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
+      height: 195,
       width: 360,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Color.fromARGB(255, 211, 211, 211),
+            offset: Offset(0.0, 0.0),
+            blurRadius: 10.0,
+            spreadRadius: 1.0,
+          ),
+        ],
         color: Colors.white,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(10),
@@ -29,16 +37,17 @@ class _HomeCardVendasState extends State<HomeCardVendas> {
           //Linhas da coluna
 
           Padding(
-            padding: EdgeInsets.only(bottom: 12),
+            padding: const EdgeInsets.only(bottom: 12),
             child: Row(
               children: [
-                Image.asset("assets/spalla-vendas-01-48x48.png", height: 40),
-                Padding(
+                Image.asset("assets/spalla-financeiro-01-48x48.png",
+                    height: 40),
+                const Padding(
                   padding: EdgeInsets.only(
                     left: 32,
                   ),
                   child: Text(
-                    "Vendas",
+                    "Financeiro",
                     style: TextStyle(
                       fontWeight: FontWeight.w900,
                       color: Color.fromARGB(255, 131, 139, 148),
@@ -51,12 +60,12 @@ class _HomeCardVendasState extends State<HomeCardVendas> {
           ),
 
           Padding(
-            padding: EdgeInsets.only(bottom: 6),
+            padding: const EdgeInsets.only(bottom: 6),
             child: Row(
               // ignore: prefer_const_literals_to_create_immutables
               children: [
-                Text(
-                  "Vendas realizadas e meta a alcançar.",
+                const Text(
+                  "Consulte os Saldos de sua empresa.",
                   style: TextStyle(
                     fontWeight: FontWeight.normal,
                     color: Color.fromARGB(255, 137, 153, 165),
@@ -68,16 +77,16 @@ class _HomeCardVendasState extends State<HomeCardVendas> {
           ),
 
           Padding(
-            padding: EdgeInsets.only(bottom: 20),
+            padding: const EdgeInsets.only(bottom: 20),
             child: Row(
               // ignore: prefer_const_literals_to_create_immutables
               children: [
-                Text(
-                  "Novas oportunidades e clientes de carteira.",
+                const Text(
+                  "Veja a projeção financeira para os próximos dias.",
                   style: TextStyle(
                     fontWeight: FontWeight.normal,
                     color: Color.fromARGB(255, 137, 153, 165),
-                    fontSize: 16,
+                    fontSize: 12,
                   ),
                 ),
               ],
@@ -89,12 +98,7 @@ class _HomeCardVendasState extends State<HomeCardVendas> {
               SizedBox(
                 height: 50,
                 child: MyButton(
-                  label: 'MINHAS VENDAS',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.blue,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  labelbutton: 'CONSULTAR',
                 ),
               )
             ],

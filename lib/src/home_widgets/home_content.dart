@@ -1,98 +1,107 @@
-// ignore_for_file: prefer_const_constructors
+import 'package:flutter/material.dart';
+import 'package:draggable_home/draggable_home.dart';
+import 'components/home_card_financeiro.dart';
+import 'components/home_card_servicos.dart';
+import 'components/home_card_vendas.dart';
 
-import 'package:spallamobile/src/home_widgets/home_card_financeiro.dart';
+class DragableHomeContent extends StatelessWidget {
+  const DragableHomeContent({super.key});
 
-import "package:flutter/material.dart";
-import 'package:spallamobile/src/home_widgets/home_card_servicos.dart';
-import 'package:spallamobile/src/home_widgets/home_card_vendas.dart';
-
-class HomePageContent extends StatefulWidget {
-  const HomePageContent({super.key});
-
-  @override
-  State<HomePageContent> createState() => _HomePageContentState();
-}
-
-class _HomePageContentState extends State<HomePageContent> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: const [
-            Color.fromARGB(255, 0, 28, 56),
-            Color.fromARGB(255, 97, 176, 255),
-          ],
-        ),
-      ),
-      child: ListView(
-        // ignore: prefer_const_literals_to_create_immutables
-        children: [
-          Padding(
-            padding: EdgeInsets.only(
-              bottom: 32,
-            ),
+    String labelEmpresa = "DBM SISTEMAS LTDA";
+    return DraggableHome(
+      title: Text(labelEmpresa),
 
-            //Header
+      headerWidget: headerHome(labelEmpresa),
 
-            child: CircleAvatar(
-              radius: 72,
-              backgroundColor: Color.fromARGB(255, 85, 90, 95),
-              child: CircleAvatar(
-                backgroundImage: AssetImage("assets/Logo-DBM.jpeg"),
-                radius: 68,
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(
-              bottom: 40,
-              left: 15,
-            ),
-            child: Text(
-              "DBM SISTEMAS LTDA",
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                  color: Color.fromARGB(255, 94, 158, 255),
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600),
-            ),
-          ),
-          TweenAnimationBuilder(
-            tween: Tween<double>(
-              begin: 0,
-              end: 1,
-            ),
-            duration: Duration(milliseconds: 700),
-            builder: (context, value, child) {
-              return AnimatedOpacity(
-                opacity: value,
-                duration: Duration(milliseconds: 700),
-                child: Column(
-                  // ignore: prefer_const_literals_to_create_immutables
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 20),
-                      child: HomeCardFinanceiro(),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 20),
-                      child: HomeCardVendas(),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 20),
-                      child: HomeCardServicos(),
-                    ),
-                  ],
-                ),
-              );
-            },
-          )
-        ],
-      ),
+      //Conteudo do Body
+      body: [cardsBodyHome()],
+      fullyStretchable: false,
+      backgroundColor: const Color.fromARGB(255, 236, 241, 243),
     );
   }
+}
+
+headerHome(labelEmpresa) {
+  return Container(
+    decoration: const BoxDecoration(
+      gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          Color.fromARGB(255, 0, 28, 56),
+          Color.fromARGB(255, 97, 176, 255),
+        ],
+      ),
+    ),
+    child: Column(
+      children: [
+        const Padding(
+          padding: EdgeInsets.only(
+            top: 100,
+          ),
+
+          //Header
+
+          child: CircleAvatar(
+            radius: 72,
+            backgroundColor: Color.fromARGB(255, 255, 255, 255),
+            child: CircleAvatar(
+              backgroundImage: AssetImage("assets/Logo-DBM.jpeg"),
+              radius: 68,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            top: 40,
+          ),
+          child: Text(
+            "$labelEmpresa",
+            textAlign: TextAlign.left,
+            style: const TextStyle(
+                color: Color.fromARGB(255, 255, 255, 255),
+                fontSize: 20,
+                fontWeight: FontWeight.w600),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+cardsBodyHome() {
+  return TweenAnimationBuilder(
+    tween: Tween<double>(
+      begin: 0,
+      end: 1,
+    ),
+    duration: const Duration(milliseconds: 850),
+    builder: (context, value, child) {
+      return AnimatedOpacity(
+        opacity: value,
+        duration: const Duration(milliseconds: 900),
+        child: Column(
+          children: const [
+            Padding(
+              padding: EdgeInsets.only(
+                bottom: 20,
+                top: 10,
+              ),
+              child: HomeCardFinanceiro(),
+            ),
+            Padding(
+              padding: EdgeInsets.only(bottom: 20),
+              child: HomeCardVendas(),
+            ),
+            Padding(
+              padding: EdgeInsets.only(bottom: 20),
+              child: HomeCardServicos(),
+            ),
+          ],
+        ),
+      );
+    },
+  );
 }

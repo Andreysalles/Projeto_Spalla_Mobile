@@ -2,7 +2,6 @@
 
 import "package:flutter/material.dart";
 import 'package:spallamobile/src/home_widgets/home_content.dart';
-
 import 'home_widgets/home_appbar.dart';
 import 'home_widgets/home_drawer.dart';
 
@@ -20,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
       extendBodyBehindAppBar: true,
       drawer: getHomeDrawer(),
       appBar: getHomeAppBar(),
-      body: HomePageContent(),
+      body: DragableHomeContent(),
     );
   }
 }

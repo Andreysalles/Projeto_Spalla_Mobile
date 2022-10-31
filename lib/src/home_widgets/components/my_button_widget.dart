@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
-  final String? label;
+  final String? labelbutton;
   final TextStyle style;
 
   const MyButton({
     super.key,
-    this.label = 'Defaut',
+    this.labelbutton = 'Defaut',
     this.style = const TextStyle(
       fontSize: 12,
       color: Colors.blue,
@@ -32,7 +32,7 @@ class MyButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Text(
-          label ?? 'Default',
+          labelbutton ?? 'Default',
           style: style,
         ),
       ),
