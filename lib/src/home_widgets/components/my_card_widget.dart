@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:spallamobile/src/home_widgets/components/my_button_widget.dart';
 
 class MyCardHome extends StatelessWidget {
   final String? textcard1;
   final String? textcard2;
   final String? labelcard;
-  final String? labelbutton;
+  final Widget? button;
   final Image? iconcard;
   final TextStyle stylebutton;
   const MyCardHome({
@@ -13,12 +14,12 @@ class MyCardHome extends StatelessWidget {
     this.textcard2 = '',
     this.labelcard = 'Default',
     this.iconcard,
-    this.labelbutton = 'Default',
     this.stylebutton = const TextStyle(
       fontSize: 12,
       color: Colors.blue,
       fontWeight: FontWeight.bold,
     ),
+    this.button,
   });
 
   @override
@@ -110,27 +111,7 @@ class MyCardHome extends StatelessWidget {
             children: [
               SizedBox(
                 height: 50,
-                child: TextButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.transparent,
-                    shape: RoundedRectangleBorder(
-                      // ignore: prefer_const_constructors
-                      side: BorderSide(
-                        color: Colors.blue,
-                        width: 1.7,
-                      ),
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                  ),
-                  onPressed: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Text(
-                      labelbutton ?? 'Default',
-                      style: stylebutton,
-                    ),
-                  ),
-                ),
+                child: button ?? const MyButton(),
               )
             ],
           ),

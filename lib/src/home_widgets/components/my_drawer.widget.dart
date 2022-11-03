@@ -9,7 +9,7 @@ class MyDrawer extends StatelessWidget {
 
   const MyDrawer(
       {super.key,
-      this.imageproffile = const AssetImage('assets/andreyfoto.jpeg'),
+      this.imageproffile = const AssetImage('assets/user_anonimo.jpeg'),
       this.email = 'default@gmail.com',
       this.username = "User"});
 

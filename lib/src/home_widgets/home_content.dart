@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:spallamobile/src/home_widgets/components/my_card_widget.dart';
+import 'package:spallamobile/src/home_widgets/components/my_button_widget.dart';
 
 class DragableHomeContent extends StatelessWidget {
   const DragableHomeContent({super.key});
@@ -88,7 +89,7 @@ cardsBodyHome() {
                 top: 10,
               ),
               child: MyCardHome(
-                  labelbutton: "CONSULTAR",
+                  button: const MyButton(labelbutton: 'CONSULTAR'),
                   iconcard: Image.asset(
                     'assets/spalla-financeiro-01-48x48.png',
                     height: 40,
@@ -101,7 +102,7 @@ cardsBodyHome() {
             Padding(
               padding: const EdgeInsets.only(bottom: 20),
               child: MyCardHome(
-                  labelbutton: "MINHAS VENDAS",
+                  button: const MyButton(labelbutton: 'MINHAS VENDAS'),
                   iconcard: Image.asset("assets/spalla-vendas-01-48x48.png",
                       height: 40),
                   labelcard: "Vendas",
@@ -111,7 +112,7 @@ cardsBodyHome() {
             Padding(
               padding: const EdgeInsets.only(bottom: 20),
               child: MyCardHome(
-                labelbutton: 'VER ATIVIDADES',
+                button: const MyButton(labelbutton: 'VER ATIVIDADES'),
                 iconcard: Image.asset('assets/spalla-servico-01-48x48.png',
                     height: 40),
                 labelcard: 'Serviço',
