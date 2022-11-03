@@ -1,9 +1,10 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 
 import "package:flutter/material.dart";
+
 import 'package:spallamobile/src/home_widgets/home_content.dart';
-import 'home_widgets/home_appbar.dart';
-import 'home_widgets/home_drawer.dart';
+import 'home_widgets/components/my_appbar_widget.dart';
+import 'home_widgets/components/my_drawer.widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,8 +18,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      drawer: getHomeDrawer(),
-      appBar: getHomeAppBar(),
+      drawer: MyDrawer(),
+      appBar: MyAppBar(),
       body: DragableHomeContent(),
     );
   }

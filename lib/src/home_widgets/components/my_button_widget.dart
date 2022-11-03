@@ -6,7 +6,7 @@ class MyButton extends StatelessWidget {
 
   const MyButton({
     super.key,
-    this.labelbutton = 'Defaut',
+    this.labelbutton = 'Default',
     this.style = const TextStyle(
       fontSize: 12,
       color: Colors.blue,

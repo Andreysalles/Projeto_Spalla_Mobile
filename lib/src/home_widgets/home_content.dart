@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:draggable_home/draggable_home.dart';
-import 'components/home_card_financeiro.dart';
-import 'components/home_card_servicos.dart';
-import 'components/home_card_vendas.dart';
+import 'package:spallamobile/src/home_widgets/components/my_card_widget.dart';
 
 class DragableHomeContent extends StatelessWidget {
   const DragableHomeContent({super.key});
@@ -83,21 +81,42 @@ cardsBodyHome() {
         opacity: value,
         duration: const Duration(milliseconds: 900),
         child: Column(
-          children: const [
+          children: [
             Padding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 bottom: 20,
                 top: 10,
               ),
-              child: HomeCardFinanceiro(),
+              child: MyCardHome(
+                  labelbutton: "CONSULTAR",
+                  iconcard: Image.asset(
+                    'assets/spalla-financeiro-01-48x48.png',
+                    height: 40,
+                  ),
+                  labelcard: "Financeiro",
+                  textcard1: "Consulte os Saldos de sua empresa.",
+                  textcard2:
+                      'Veja a projeção financeira para os próximos dias.'),
             ),
             Padding(
-              padding: EdgeInsets.only(bottom: 20),
-              child: HomeCardVendas(),
+              padding: const EdgeInsets.only(bottom: 20),
+              child: MyCardHome(
+                  labelbutton: "MINHAS VENDAS",
+                  iconcard: Image.asset("assets/spalla-vendas-01-48x48.png",
+                      height: 40),
+                  labelcard: "Vendas",
+                  textcard1: 'Vendas realizadas e meta a alcançar',
+                  textcard2: 'Novas oportunidades e clientes de carteira'),
             ),
             Padding(
-              padding: EdgeInsets.only(bottom: 20),
-              child: HomeCardServicos(),
+              padding: const EdgeInsets.only(bottom: 20),
+              child: MyCardHome(
+                labelbutton: 'VER ATIVIDADES',
+                iconcard: Image.asset('assets/spalla-servico-01-48x48.png',
+                    height: 40),
+                labelcard: 'Serviço',
+                textcard1: 'Consulte sua agenda de atividades',
+              ),
             ),
           ],
         ),
