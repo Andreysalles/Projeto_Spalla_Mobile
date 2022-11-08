@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:draggable_home/draggable_home.dart';
+import 'package:spallamobile/application/components/application_default_background.dart';
+import 'package:spallamobile/application/components/application_default_button.dart';
+import 'package:spallamobile/src/financeiro_widget/financeiro_view.dart';
 import 'package:spallamobile/src/home_widgets/components/my_card_widget.dart';
-import 'package:spallamobile/src/home_widgets/components/my_button_widget.dart';
 
-class DragableHomeContent extends StatelessWidget {
-  const DragableHomeContent({super.key});
+class HomeContent extends StatelessWidget {
+  final String labelEmpresa;
+
+  const HomeContent({
+    super.key,
+    this.labelEmpresa = "DBM SISTEMAS LTDA",
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,24 +23,13 @@ class DragableHomeContent extends StatelessWidget {
 
       //Conteudo do Body
       body: [cardsBodyHome()],
-      fullyStretchable: false,
       backgroundColor: const Color.fromARGB(255, 236, 241, 243),
     );
   }
 }
 
 headerHome(labelEmpresa) {
-  return Container(
-    decoration: const BoxDecoration(
-      gradient: LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [
-          Color.fromARGB(255, 0, 28, 56),
-          Color.fromARGB(255, 97, 176, 255),
-        ],
-      ),
-    ),
+  return ApplicationDefaultBackGround(
     child: Column(
       children: [
         const Padding(
@@ -89,7 +85,17 @@ cardsBodyHome() {
                 top: 10,
               ),
               child: MyCardHome(
-                  button: const MyButton(labelbutton: 'CONSULTAR'),
+                  button: ApplicationDefaultButton(
+                    buttonLabel: 'CONSULTAR',
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const FinanceiroScreen(),
+                        ),
+                      );
+                    },
+                  ),
                   iconcard: Image.asset(
                     'assets/spalla-financeiro-01-48x48.png',
                     height: 40,
@@ -102,7 +108,8 @@ cardsBodyHome() {
             Padding(
               padding: const EdgeInsets.only(bottom: 20),
               child: MyCardHome(
-                  button: const MyButton(labelbutton: 'MINHAS VENDAS'),
+                  button: const ApplicationDefaultButton(
+                      buttonLabel: 'MINHAS VENDAS'),
                   iconcard: Image.asset("assets/spalla-vendas-01-48x48.png",
                       height: 40),
                   labelcard: "Vendas",
@@ -112,7 +119,8 @@ cardsBodyHome() {
             Padding(
               padding: const EdgeInsets.only(bottom: 20),
               child: MyCardHome(
-                button: const MyButton(labelbutton: 'VER ATIVIDADES'),
+                button: const ApplicationDefaultButton(
+                    buttonLabel: 'VER ATIVIDADES'),
                 iconcard: Image.asset('assets/spalla-servico-01-48x48.png',
                     height: 40),
                 labelcard: 'Serviço',

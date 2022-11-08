@@ -1,8 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-
-import 'src/home_view.dart';
+import 'package:spallamobile/src/home_view.dart';
 
 void main() {
   runApp(const MyApp());

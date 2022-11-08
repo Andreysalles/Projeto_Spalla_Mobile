@@ -33,6 +33,10 @@ dependencies:
   flutter:
     sdk: flutter
   draggable_home: ^1.0.4
+  fl_chart: ^0.55.2
+  percent_indicator: ^4.0.1
+  syncfusion_flutter_charts: ^20.3.56
+  
 
 
 

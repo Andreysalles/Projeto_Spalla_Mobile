@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:spallamobile/src/home_widgets/components/my_button_widget.dart';
+import 'package:spallamobile/application/components/application_default_button.dart';
+import 'package:spallamobile/application/components/application_default_card.dart';
 
 class MyCardHome extends StatelessWidget {
   final String? textcard1;
@@ -12,39 +13,19 @@ class MyCardHome extends StatelessWidget {
     super.key,
     this.textcard1 = 'text default',
     this.textcard2 = '',
-    this.labelcard = 'Default',
+    this.labelcard,
     this.iconcard,
     this.stylebutton = const TextStyle(
       fontSize: 12,
       color: Colors.blue,
       fontWeight: FontWeight.bold,
     ),
-    this.button,
+    this.button = const ApplicationDefaultButton(),
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      height: 195,
-      width: 360,
-      decoration: const BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Color.fromARGB(255, 211, 211, 211),
-            offset: Offset(0.0, 0.0),
-            blurRadius: 10.0,
-            spreadRadius: 1.0,
-          ),
-        ],
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(10),
-          topRight: Radius.circular(10),
-          bottomLeft: Radius.circular(10),
-          bottomRight: Radius.circular(10),
-        ),
-      ),
+    return ApplicationDefaultContainer(
       child: Column(
         children: [
           //Linhas da coluna
@@ -76,7 +57,6 @@ class MyCardHome extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(bottom: 6),
             child: Row(
-              // ignore: prefer_const_literals_to_create_immutables
               children: [
                 Text(
                   textcard1 ?? '',
@@ -93,7 +73,6 @@ class MyCardHome extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(bottom: 20),
             child: Row(
-              // ignore: prefer_const_literals_to_create_immutables
               children: [
                 Text(
                   textcard2 ?? "Text Default",
@@ -111,7 +90,7 @@ class MyCardHome extends StatelessWidget {
             children: [
               SizedBox(
                 height: 50,
-                child: button ?? const MyButton(),
+                child: button,
               )
             ],
           ),

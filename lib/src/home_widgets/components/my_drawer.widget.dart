@@ -9,7 +9,7 @@ class MyDrawer extends StatelessWidget {
 
   const MyDrawer(
       {super.key,
-      this.imageproffile = const AssetImage('assets/user_anonimo.jpeg'),
+      this.imageproffile = const AssetImage('assets/user_anonimo.png'),
       this.email = 'default@gmail.com',
       this.username = "User"});
 
@@ -53,12 +53,12 @@ class MyDrawer extends StatelessWidget {
             textColor: Color.fromARGB(255, 126, 126, 126),
           ),
           ListTile(
-              leading: Icon(
-                Icons.logout_outlined,
-                color: Color.fromARGB(255, 81, 168, 255),
-              ),
-              title: Text("Sair"),
-              textColor: Color.fromARGB(255, 126, 126, 126))
+            leading: Icon(
+              Icons.logout_outlined,
+              color: Color.fromARGB(255, 81, 168, 255),
+            ),
+            title: Text("Sair"),
+            textColor: Color.fromARGB(255, 126, 126, 126),)
         ],
       ),
     );
